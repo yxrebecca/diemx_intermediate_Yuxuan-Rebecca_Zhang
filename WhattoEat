@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WhattoEat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous" />
+        <script src="https://kit.fontawesome.com/d9c9c39cb0.js" crossorigin="anonymous"></script>
+        <style>
+            html, body, header, #intro {
+                 height: 100%;
+            }
+
+            section{
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            .topnav{
+                background-color:slategray;
+                overflow: auto;
+                z-index: 9999;
+            }
+
+            .topnav a{
+                float: left;
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 20px;
+                font-size: 20px;
+            }
+
+            .topnav a:hover{
+                background-color: lightgray;
+                color: lightslategray;
+                font-weight: bold;
+            }
+
+            .topnav a.active{
+                background-color:lightgray;
+                color: slategray;
+            }
+
+            .topnav .icon{
+                display: none;
+            }
+
+            .sticky{
+                position:fixed;
+                top: 0px;
+                width:100%;
+            }
+
+            .sticky+.content{
+                padding-top: 60px;
+            }
+
+            body{
+                background-color: whitesmoke;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+
+            .intro{
+                background: url("https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/118309495_1200361373672187_6312370881880821849_o.jpg?_nc_cat=105&_nc_sid=0debeb&_nc_ohc=ueYObf9UqCYAX_8y9C9&_nc_ht=scontent.fyyz1-1.fna&oh=010ca9809c7e635247d1862122a0ce05&oe=5F669BB4") no-repeat center center fixed;
+                background-size: cover;
+                height:100%;
+           }
+
+            .title{
+                line-height: 50px;
+                text-align: center;
+                color:slategray;
+                font-weight: bold;
+            }
+            p,li{ 
+                font-size: 20px;
+                line-height: 50px;
+                color: slategray;
+            }
+
+            .fa-adj{
+                color: slategray;
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+
+            .fa-footer{
+                color: whitesmoke;
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+
+
+            hr.split{
+                border-top: 3px solid slategray;
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+
+            .ins{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                margin: 20px;
+            }
+
+            .polaroid{
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .caption{
+                text-align:center;
+                padding: 10px 20px;
+            }
+
+            label{
+                width: 100%;
+                line-height: 25px;
+                padding: 5px;
+                margin: 5px;
+                font-size: 20px;
+                font-weight: bold;
+                color: slategray;                
+                box-sizing: border-box;
+                background-color: rgb(230, 230, 230);
+                resize: vertical;
+            }
+
+            input[type=text]{
+                width: 100%;
+                line-height: 25px;
+                padding: 5px;
+                margin: 5px;
+                font-size: 20px;
+                font-weight: bold;
+                color: slategray;                
+                box-sizing: border-box;
+                background-color: rgb(230, 230, 230);
+                border: none;
+                border-bottom: 2px solid slategray;
+                resize: vertical;
+            }
+
+            input::placeholder{
+                font-size: 17px;
+                font-weight: normal;
+            }
+
+            input[type=text]:focus{
+                box-sizing: unset;
+                background-color: rgb(230, 230, 230);
+                box-shadow: 5px 5px 2px lightgray;
+            }
+
+            textarea{
+                width:100%;
+                height: 100px;
+                padding: 5px;
+                margin: 5px;
+                color:slategray;
+                font-size: 20px;
+                box-sizing: border-box;
+                border: 2px solid slategray;
+                background-color: rgb(230, 230, 230);
+                resize: none;
+            }
+
+            textarea ::placeholder{
+                font-size: 10px;
+                font-weight: normal;
+            }
+
+            textarea:focus{
+                box-sizing: border-box;
+                border-radius: 5px;
+                border: 2px solid lightslategray;
+                box-shadow: 2px 2px 1px lightgray;
+            }
+
+            input[type=submit] {
+                width:100%;
+                background-color: slategray;
+                color: whitesmoke;
+                font-size: 20px;
+                border: none;
+                border-radius: 3px;
+                padding:10px 24px;
+                margin: 10px,10px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover{
+                background-color: lightgray;
+                color: slategray;
+                font-weight: bold;
+            }
+    
+        </style>
+    </head>
+    
+    <body data-spy="scroll" data-target="#nabvar">
+        <header>
+        <!---navbar--------------------------------------------------------------------------->
+        <div class="topnav" id="navbar">
+            <a href="#Home" class="active">Home</a>
+            <a href="#Bio">Bio</a>
+            <a href="#Experience">Experience</a>
+            <a href="#Interests">Interests</a>
+            <a href="#Contact Me">Contact</a>
+            <a href="#Search" style="float: right;">Search</a>
+        </div>
+        <script>
+        window.onscroll = function() {myFunction()};
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+            function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } 
+            else {
+                navbar.classList.remove("sticky");
+            }
+            } 
+        </script>
+        <script>
+            var navbar = document.getElementById("navbar");
+            var active = navbar.getElementsByClassName("topnav a");
+            for (var i = 0; i < btns.length; i++) {
+              active[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              if (current.length > 0) { 
+                current[0].className = current[0].className.replace(" active", "");
+              }
+              this.className += " active";
+              });
+            }
+        </script>
+        <script>
+            $( '#navbar .topnav a' ).on( 'click', function () {
+	            $( '#navbar .topnav' ).find( 'topnav a.active' ).removeClass( 'active' );
+	            $( this ).parent( 'topnav a' ).addClass( 'active' );
+});
+        </script>
+
+        <!---intro------------------------------------------------------------------------------>
+        <section id="Home" class="intro">
+            <div class="container-fluid d-flex align-items-center justify-content-center">
+                <div class="row d-flex justify-content-center text-center">
+                     <div class="col-md-12">
+                        <h1 style="color: whitesmoke; text-align: center; font-weight: bold; font-size: 64px; padding-top: 350px;">Hi there</h1>
+                     </div>
+                </div>
+            </div>
+        </section>
+        </header>
+
+        <main>
+        <!---Bio Description--------------------------------------------------------------------->   
+        <section id="Bio" class="text-center" >
+            <div class="container d-flex align-item-center justify-content-center">
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <img src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/52723191_792405291134466_7005995703147167744_n.jpg?_nc_cat=102&_nc_sid=174925&_nc_ohc=M5vUOGJt_WYAX8MkOkJ&_nc_ht=scontent.fyyz1-2.fna&oh=29991c4f2be468e9a1dd4dabffe95b78&oe=5F656190" alt="selfie" style="height:500px; border-radius: 50%;margin-top: 100px;"></img> 
+                        <h1 class="title mt-3 mb-5" style="font-weight: bold;">Rebecca Zhang</h1>
+                        <p>Seeking opportunities on Logistics and Supply Chain Management.</p>
+                        <p>Aiming not only to manage inventory efficiently, but also to connect with customers with design thinking mindset, employing solutions with cutting-edge technologies and building strong relationships with third-party suppliers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!---Experience Portfolio---------------------------------------------------------------->   
+        <section id="Experience" style="background-color: rgb(230, 230, 230);">
+            <div class="container d-flex align-item-center justify-content-center">
+                <div class="row">
+                    <div class="col-md-12 mt-5">
+                        <h3 class="title">Euducation</h3>
+                        <i class="fa fa-graduation-cap fa-4x fa-adj"></i>
+                        <div class="text-center">
+                            <p>Rotman Commerce, Univercity of Toronto</p>
+                            <p>Specialization in Management, Minor in East Asian Studies
+                            <p>Expected Graduation data spring 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="split">
+            <div class="container d-flex align-item-center justify-content-center">
+                <div class="row mt-5 mb-5">
+                     <div class="col-md-6">
+                            <h3 class="title">Experience</h3>
+                            <i class="fa fa-briefcase fa-4x fa-adj"></i>
+                            <li>Logestic Committee Member at ACE2020 Career Fair</li>
+                            <li>ASKme Operation Staff for Orientation2019</li>
+                            <li>Event Committee Member at RCBDA</li>
+                            <li>CR Committee Member at RCNPN</li>
+                    </div>
+                    <div class="col-md-6">
+                            <h3 class="title">Skills</h3> 
+                            <i class="fa fa-clipboard-list fa-4x fa-adj"></i> 
+                            <li>Time managemnt</li>
+                            <li>Attention to details</li> 
+                            <li>Interpersonal, communication and customer-service</li>
+                            <li>Problem-solving, collaboration and teamwork</li>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!---Interests----------------------------------------------------------------------------->   
+        <section id="Interests" class="text-center">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-12">
+                        <h3 class="title mt-5 text-center">Interests</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <img class="ins" src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/118404594_1200193953688929_2377670223116734090_o.jpg?_nc_cat=109&_nc_sid=0debeb&_nc_ohc=5KnqvaPr2s0AX_BKBhN&_nc_ht=scontent.fyyz1-2.fna&oh=e3fe081ad5bd6a6c6821ed8c3d375453&oe=5F66B28C" alt="instagram" style="height:300px; border-radius: 0%;"></img> 
+                    </div>
+                </div>
+            </div >
+            <div class="container">
+                <div class="row mb-10">
+                    <div class="col-md-4 mb-10">
+                        <i class="fas fa-utensils fa-4x fa-adj"></i>
+                        <p>What to eat?</p>
+                    </div>
+                    <div class="col-md-4 mb-10">
+                        <i class="fab fa-instagram fa-4x fa-adj"></i>
+                        <p><a href="https://www.instagram.com/circles_on_a_melon/?hl=en" target="_blank" style="color: slategray;">circles_on_a_melon</a></p>    
+                    </div>
+                    <div class="col-md-4 mb-10">
+                        <i class="fab fa-youtube fa-4x fa-adj"></i>
+                        <p><a href="https://www.youtube.com/channel/UCZvv869IPGUVbP8uafZw46A" target="_blank" style="color: slategray;">circles_on_a_melon</a></p>    
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid d-flex align-item-center">
+                <div class="row mr-2 ml-2">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/118267530_1200193877022270_1325988240615482949_o.jpg?_nc_cat=100&_nc_sid=0debeb&_nc_ohc=lxCVDCM-GKEAX-xNe7L&_nc_ht=scontent.fyyz1-2.fna&oh=3f9aa19c57b8ca8102cf8d5ae2fdd09f&oe=5F662369" alt="pennoni in alfredo sauce" style="width:100%"></img>
+                            <div class="caption">
+                                <p style="color: gray">Pennoni in Alfredo Sauce</p>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/118321217_1200193960355595_4017468120903616069_o.jpg?_nc_cat=101&_nc_sid=0debeb&_nc_ohc=xdxmhe4RNFwAX-7hoZm&_nc_ht=scontent.fyyz1-1.fna&oh=2c9d7cd7b94d347a502dba0ead1f74c7&oe=5F68911E" alt="hand made noodles" style="width:100%"></img>
+                            <div class="caption">
+                                <p style="color:gray">Hand-made Noodles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/118314148_1200193987022259_3524590835668111708_o.jpg?_nc_cat=110&_nc_sid=0debeb&_nc_ohc=kXSIYOOjjXQAX9p9SlR&_nc_ht=scontent.fyyz1-2.fna&oh=bca0854fa8842915cd21cb34e4739d89&oe=5F678B56" alt="ricepaper rolls" style="width:100%"></img>
+                            <div class="caption">
+                                <p style="color:gray">Ricepaper Rolls</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/118472340_1200194067022251_8893874918306756205_o.jpg?_nc_cat=101&_nc_sid=0debeb&_nc_ohc=7y2es3LkAZQAX8BE-RY&_nc_ht=scontent.fyyz1-1.fna&oh=2a0d1fc3f459ca2082bf7146d9585e0a&oe=5F6859AD" alt="brussel sprouts" style="width:100%"></img>
+                            <div class="caption">
+                                <p style="color:gray">Brussel Sprounts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/118297432_1200194087022249_3513639169810723236_o.jpg?_nc_cat=102&_nc_sid=0debeb&_nc_ohc=_YQdgD6dxxkAX9IcdYp&_nc_ht=scontent.fyyz1-2.fna&oh=6b175940d5fb7a96f82bb89573653fb7&oe=5F665B3E" alt="chicken wings with chestnut" style="width:100%"></img> 
+                            <div class="caption">
+                                <p style="color:gray">Chicken Wings w/ Chestnut</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="polaroid">
+                            <img src="https://scontent.fyyz1-2.fna.fbcdn.net/v/t1.0-9/118459998_1200193920355599_193638702006630303_o.jpg?_nc_cat=106&_nc_sid=0debeb&_nc_ohc=IFWGp85as5YAX_b9YxW&_nc_ht=scontent.fyyz1-2.fna&oh=7303fadbba362476eb76e165291e7333&oe=5F660158" alt="shredded chicken" style="width:100%"></img>
+                            <div class="caption">
+                                <p style="color:gray">Shredded Chicken</p>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+
+         <!---Contact Me-------------------------------------------------------------------------->   
+        <section id="Contact Me">
+            <div class="container-fluid align-item-center">
+                <div class="row mt-10">
+                    <div class="col-md-12">
+                        <h3 class="title mr-5 ml-5 mt-5"> Want to know more about me? Just leave a message here</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container d-flex align-item-center" style="background-color: rgb(230, 230, 230); padding:200px; padding-top: 10px; padding-bottom:20px">
+                <form action="####">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="name">Your Name: </label>
+                            <input type="text" id="name" placeholder="NAME">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email">Your Email: </label>
+                            <input type="text" id="email" placeholder="EMAIL@ADDRESS.COM">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="message">Message: </label>
+                            <textarea id="message" placeholder="QUESTIONS? COMMENTS?"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" value="SUBMIT">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container" style="background-color: whitesmoke; padding:50px;">
+            </div>
+        </section>    
+
+        </main>
+
+        <!---Footer------------------------------------------------------->
+        <footer class="page-footer">
+            <div class="container-fluid" style="background-color: slategray;">
+                <div row d-flext align-center-item justify-content-center h-100>
+                    <div class="col-md-12 text-center">
+                        <a href="https://www.facebook.com/profile.php?id=100010950064983" target="_blank">
+                            <i class="fab fa-facebook fa-2x fa-footer mt-2 mb-2"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank">
+                            <i class="fab fa-linkedin fa-2x fa-footer mt-2 mb-2"></i>
+                        </a>
+                        <a href="https://github.com/yxrebecca" target="_blank">
+                            <i class="fab fa-github fa-2x fa-footer mt-2 mb-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous"></script>
+    </body>
+</html>
