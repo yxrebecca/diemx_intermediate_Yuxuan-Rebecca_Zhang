@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>WhattoEat</title>
+        <title>WhattoEat-E</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
         <link rel="stylesheet" 
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
         crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous" type="text/javascript"></script>
         <script src="https://kit.fontawesome.com/d9c9c39cb0.js" crossorigin="anonymous"></script>
         <style>
             html, body, header, #intro {
@@ -213,11 +216,16 @@
         <header>
         <!---navbar--------------------------------------------------------------------------->
         <div class="topnav" id="navbar">
-            <a href="#Home" class="active">Home</a>
-            <a href="#Bio">Bio</a>
-            <a href="#Experience">Experience</a>
-            <a href="#Interests">Interests</a>
-            <a href="#Contact Me" style="float: right">Contact</a>
+     
+            <a class = "nav" href="#Home" class="active">Home</a>
+            <a class = "nav" href="#Bio">Bio</a>
+            <a class = "nav" href="#Experience">Experience</a>
+            <a class = "nav" href="#Interests">Interests</a>
+            <a class = "nav" href="#Contact Me">Contact</a>
+
+       
+            <a class = "nav" href="#Search" style="float: right;">Search</a>
+
         </div>
         <script>
         window.onscroll = function() {myFunction()};
@@ -234,11 +242,17 @@
             }
             } 
         </script>
-        <script>
-            $( '#navbar topnav a' ).on( 'click', function () {
-	            $( '#navbar topnav a' ).find( 'topnav a.active' ).removeClass( 'active' );
-	            $( this ).parent( '#navbar topnav a' ).addClass( 'active' );
-            });
+       
+
+        <script type="text/javascript">
+        
+        $(function() { 
+    $('#navbar').on('click','.nav', function ( e ) {
+       
+        $(this).parents('#navbar').find('.active').removeClass('active').end().end().addClass('active');
+      
+    });
+});
         </script>
 
         <!---intro------------------------------------------------------------------------------>
@@ -441,11 +455,23 @@
                 </div>
             </div>
 
-        </footer>   
+        </footer>
+
+
+
+
+
+
+
+
+
+
         
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-        crossorigin="anonymous"></script>
+        
+        
+        
+        
+       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
         crossorigin="anonymous"></script>
