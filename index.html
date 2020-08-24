@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <title>WhattoEat-E</title>
+        <title>WhattoEat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
         <link rel="stylesheet" 
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -11,6 +12,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
         crossorigin="anonymous" type="text/javascript"></script>
         <script src="https://kit.fontawesome.com/d9c9c39cb0.js" crossorigin="anonymous"></script>
+        
         <style>
             html, body, header, #intro {
                  height: 100%;
@@ -25,6 +27,10 @@
                 background-color:slategray;
                 overflow: auto;
                 z-index: 9999;
+                position: fixed;
+                top: 0px;
+                width: 100%;
+                transition: top 0.5s;
             }
 
             .topnav a{
@@ -114,6 +120,10 @@
                 margin: 20px;
             }
 
+            .ins :hover{
+                opacity: 0.7;
+            }
+
             .polaroid{
                 width: 100%;
                 background-color: white;
@@ -175,6 +185,7 @@
                 font-size: 20px;
                 box-sizing: border-box;
                 border: 2px solid slategray;
+                border-radius: 4px;
                 background-color: rgb(230, 230, 230);
                 resize: none;
             }
@@ -210,23 +221,23 @@
             }
     
         </style>
+
     </head>
     
+
+
     <body data-spy="scroll" data-target="#nabvar">
-        <header>
+    <header>
         <!---navbar--------------------------------------------------------------------------->
         <div class="topnav" id="navbar">
-     
-            <a class = "nav" href="#Home" class="active">Home</a>
-            <a class = "nav" href="#Bio">Bio</a>
-            <a class = "nav" href="#Experience">Experience</a>
-            <a class = "nav" href="#Interests">Interests</a>
-            <a class = "nav" href="#Contact Me">Contact</a>
-
-       
-            <a class = "nav" href="#Search" style="float: right;">Search</a>
-
+            <a class="nav" href="#Home" class="active">Home</a>
+            <a class="nav" href="#Bio">Bio</a>
+            <a class="nav" href="#Experience">Experience</a>
+            <a class="nav" href="#Interests">Interests</a>
+            <a class="nav" href="#Contact Me" style="float: right">Contact</a>
         </div>
+
+
         <script>
         window.onscroll = function() {myFunction()};
 
@@ -242,18 +253,31 @@
             }
             } 
         </script>
-       
+
+        
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar").style.top = "0";
+                } else {
+                    document.getElementById("navbar").style.top = "-50px";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        </script>
+        
 
         <script type="text/javascript">
-        
-        $(function() { 
-    $('#navbar').on('click','.nav', function ( e ) {
-       
-        $(this).parents('#navbar').find('.active').removeClass('active').end().end().addClass('active');
-      
-    });
-});
+            $(function() { 
+                $('#navbar').on('click','.nav', function ( e ) {
+                    $(this).parents('#navbar').find('.active').removeClass('active').end().end().addClass('active');
+                });
+            });
         </script>
+
+
 
         <!---intro------------------------------------------------------------------------------>
         <section id="Home" class="intro">
@@ -265,9 +289,10 @@
                 </div>
             </div>
         </section>
-        </header>
+    </header>
 
-        <main>
+
+    <main>
         <!---Bio Description--------------------------------------------------------------------->   
         <section id="Bio" class="text-center" >
             <div class="container d-flex align-item-center justify-content-center">
@@ -281,6 +306,7 @@
                 </div>
             </div>
         </section>
+
 
         <!---Experience Portfolio---------------------------------------------------------------->   
         <section id="Experience" style="background-color: rgb(230, 230, 230);">
@@ -297,7 +323,9 @@
                     </div>
                 </div>
             </div>
+
             <hr class="split">
+
             <div class="container d-flex align-item-center justify-content-center">
                 <div class="row mt-5 mb-5">
                      <div class="col-md-6">
@@ -319,6 +347,7 @@
                 </div>
             </div>
         </section>
+
 
         <!---Interests----------------------------------------------------------------------------->   
         <section id="Interests" class="text-center">
@@ -400,6 +429,7 @@
                     </div>
         </section>
 
+
          <!---Contact Me-------------------------------------------------------------------------->   
         <section id="Contact Me">
             <div class="container-fluid align-item-center">
@@ -435,10 +465,12 @@
             </div>
         </section>    
 
-        </main>
+    </main>
+
+
 
         <!---Footer------------------------------------------------------->
-        <footer class="page-footer">
+    <footer class="page-footer">
             <div class="container-fluid" style="background-color: slategray;">
                 <div row d-flext align-center-item justify-content-center h-100>
                     <div class="col-md-12 text-center">
@@ -454,24 +486,14 @@
                     </div>
                 </div>
             </div>
-
-        </footer>
-
-
-
-
-
-
-
-
-
-
+    </footer>   
         
-        
-        
-        
-        
-       
+
+
+
+
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
         crossorigin="anonymous"></script>
@@ -479,4 +501,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
         crossorigin="anonymous"></script>
     </body>
+
 </html>
